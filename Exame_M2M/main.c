@@ -111,5 +111,8 @@ int main(void) {
   printf("\nLittle endian: \n");
   littleEndian(buffer);
 
+  printf("\n");
+  system("pause"); //Pausa para a execução via exe
+
   return 0;
 }
