@@ -68,9 +68,16 @@ void printBuffer(int buffer[N]){
 void littleEndian(int buffer[N]){
   int temp;
   for(int i = 1; i < N-3; i += 4){
-    //Faz o swap de uma posição com outra 3 posições a frente
+    //Faz o swap das posições externas de um número
+    temp = buffer[i];
     buffer[i] = buffer[i+3];
-    buffer[i+3] = 0;
+    buffer[i+3] = temp;
+
+    //Faz o swap das posições internas de um número
+    temp = buffer[i+1];
+    buffer[i+1] = buffer[i+2];
+    buffer[i+2] = temp;
+
   }
 
   printBuffer(buffer); //Imprime o buffer
@@ -84,9 +91,16 @@ void littleEndian(int buffer[N]){
 void bigEndian(int buffer[N]){
   int temp;
   for(int i = 1; i < N-3; i += 4){
-    //Faz o swap de uma posição com outra 3 posições atrás
+    //Faz o swap das posições externas de um número
+    temp = buffer[i+3];
     buffer[i+3] = buffer[i];
-    buffer[i] = 0;
+    buffer[i] = temp;
+
+    //Faz o swap das posições internas de um número
+    temp = buffer[i+2];
+    buffer[i+2] = buffer[i+1];
+    buffer[i+1] = temp;
+
   }
 
   printBuffer(buffer); //Imprime o buffer
